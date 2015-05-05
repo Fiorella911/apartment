@@ -1,0 +1,12 @@
+bundles_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BundlesUserBundle:Default:index }
+
+bundles_user_user_profile:
+    path:     /user_profile
+    defaults: { _controller: BundlesUserBundle:UserProfile:showProfile }
+    
+bundles_user_edit_profile:
+    path:     /edit_profile
+    defaults: { _controller: BundlesUserBundle:UserProfile:editProfile }
+   

@@ -1,0 +1,48 @@
+Apartment\ApartBundle\Entity\Rooms:
+    type: entity
+    table: acco_rooms
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        propertyId:
+            type: integer
+            column: property_id
+        roomType:
+            type: integer
+            column: room_type
+        number:
+            type: integer
+        dateFrom:
+            type: date
+            column: date_from
+        dateTo:
+            type: date
+            column: date_to
+        maxChildAge:
+            type: integer
+            column: max_child_age
+        minChildAge:
+            type: integer
+            column: min_child_age
+        maxChildren:
+            type: integer
+            column: max_children
+        isAvailable:
+            type: integer
+            column: is_available
+        descriptionEn:
+            type: text
+            column: description_en
+        acceptedGender:
+            type: string
+            length: 255
+            column: accepted_gender
+        blockName:
+            type: string
+            length: 255
+            column: block_name
+    lifecycleCallbacks: {  }

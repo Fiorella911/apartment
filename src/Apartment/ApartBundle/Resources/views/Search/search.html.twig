@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="search-block">
+
+            <form action="{{ path('apartment_apart_searchShow', {'slug':towns.0.getId }) }}" method="GET">                    
+                <div class="location-wrapper">
+
+                <!--<input type="text" id="autocomplete" onFocus="geolocate()" placeholder="Where to go?">-->
+                <!--<input type="hidden" class="country" name="country">-->
+                <!--<input type="hidden" class="town" name="town">-->
+                <div class="sel">
+                    <select name="country" id="country">
+                        <option value="">Country</option>
+
+                        {% for country in countries %}
+                        <option value="{{ country.getNameEn }}">{{ country.getNameEn }}</option>
+                        {% endfor %}
+
+                    </select>           
+                </div>
+                <div class="sel">
+                    <select name="town" id="town">
+                        <option value="">Town</option>
+                        {% for city in towns %}
+                        <option value="{{ city.getNameEn }}">{{ city.getNameEn }}</option>
+                        {% endfor %}
+                    </select>                        
+                </div>
+                <!-- <p id="enter_location_error_message" class="bad hide">Please set location</p> -->
+                </div>
+                <input type="text" name="checkIn" class="datepicker" placeholder="Check In">
+                <input type="text" name="checkOut" class="dat_to" placeholder="Check Out">
+            <div class="sel">
+                <select name="guests">
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                    <option value="7">7 Guests</option>
+                    <option value="8">8 Guests</option>
+                    <option value="9">9 Guests</option>
+                    <option value="10">10 Guests</option>
+                    <option value="11">11 Guests</option>
+                    <option value="12">12 Guests</option>
+                    <option value="13">13 Guests</option>
+                    <option value="14">14 Guests</option>
+                    <option value="15">15 Guests</option>
+                    <option value="16">16+ Guests</option>
+                </select>
+            </div>
+                <input class="btn btn-big" type="submit" name="yt0" value="Search" />                   
+                <!--<button type="submit" class="btn btn-big">Search</button>-->
+            </form>                
+    </div>
+</div>

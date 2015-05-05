@@ -1,0 +1,29 @@
+{% extends "ApartmentApartBundle::layout.html.twig" %}
+
+
+
+{% block content %}
+    <div class="row"> 
+        {% if is_granted('ROLE_USER') %}  
+        <form action="{{ path('bundles_user_edit_profile') }}" method="post">
+        <p>Логин</p>
+        <textarea type="text" rows="1" cols="30" name="userName">{{ user.getUserName() }}</textarea>
+        <p>Имя</p>
+        <textarea type="text" rows="1" cols="30" name="userFirstName">{{ user.getFirstName() }}</textarea>
+        <p>Фамилия</p>
+        <textarea type="text" rows="1" cols="30" name="userLastName">{{ user.getLastName() }}</textarea>
+        <p>E-mail</p>
+        <textarea type="text" rows="1" cols="30" name="userEmail">{{ user.getEmail() }}</textarea>
+        <p>Сменить пароль:</p>
+        <p>Ведите старый пароль</p>
+        <input type="password" rows="1" cols="30" name="password"></input>
+        {#<p>Ведите новый пароль</p>
+        <input type="password" rows="1" cols="30" name="userPasswordNew"></input>
+        <p>Ведите новый пароль еще раз</p>
+        <input type="password" rows="1" cols="30" name="userPasswordNew1"></input>#}
+        
+        <button type="submit" name="submit" class="readmore">Сохранить</button>
+        </form>
+        {% endif %}  
+    </div>
+{% endblock %}

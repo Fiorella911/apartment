@@ -1,0 +1,27 @@
+{% extends "ApartmentApartBundle::layout.html.twig" %}
+
+
+
+{% block content %}
+
+    {{ render(controller("ApartmentApartBundle:Main:search")) }}
+    
+     <a href="/town/54" class="offer ">
+        {#<img src="/vendors/resize.php?src=/themes/classic/images/defaultTown.jpg&w=500&h=500" alt="">#}
+        <span class="offer-info">
+            <span class="tbl">
+                <span class="tbl-cell">
+                    <span class="city">
+                        {% for city in town %}
+                            {{ city.getNameEn }}
+                        {% endfor %}
+                    </span>
+                    <span class="num">11 - колич квартир</span>
+                </span>
+            </span>
+        </span>
+    </a>
+
+  
+{% endblock %}
+

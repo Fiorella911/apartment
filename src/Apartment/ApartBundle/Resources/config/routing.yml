@@ -1,0 +1,11 @@
+apartment_apart_homepage:
+    path:     /
+    defaults: { _controller: ApartmentApartBundle:Main:index }
+    
+apartment_apart_searchShow:
+    path:     /s/{slug}
+    defaults: { _controller: ApartmentApartBundle:Main:searchShow }
+    
+apartment_apart_town:
+    path:     /town/{slug}
+    defaults: { _controller: ApartmentApartBundle:Main:town }

@@ -1,0 +1,28 @@
+Apartment\ApartBundle\Entity\Countries:
+    type: entity
+    table: acco_countries
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        abbr:
+            type: string
+            length: 255
+        nameEn:
+            type: string
+            length: 255
+            column: name_en
+        isVisible:
+            type: integer
+            column: is_visible
+        currId:
+            type: integer
+            column: curr_id
+    oneToMany:
+        towns:
+            targetEntity: Towns
+            mappedBy: countries
+    lifecycleCallbacks: {  }

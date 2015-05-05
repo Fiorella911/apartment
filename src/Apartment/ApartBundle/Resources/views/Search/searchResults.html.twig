@@ -1,0 +1,136 @@
+{% extends "ApartmentApartBundle::layout.html.twig" %}
+
+
+
+{% block content %}
+    
+    {{ town.0.getNameEn }}|
+    {{ country.0.getNameEn }}
+    
+{#
+    Даты <input type="text" name="date" placeholder="Прибытие"></input>
+         <input type="text" name="date" placeholder="Выезд"></input>
+    Тип размещения <input type="text" name="location_type"></input>#}
+    
+<div class="row">
+    <form action="/s" id="search-form" class="search-form">
+      <div class="search-bar">
+        <i class="icon icon-search icon-gray h4"></i>
+        <input type="text"
+               placeholder="Куда вы едете?"
+               autocomplete="off"
+               name="location"
+                data-p2="true"
+                value="{{ town.0.getNameEn }}, {{ country.0.getNameEn }}"
+               data-date-placeholder="dd.мм.гггг"
+               class="location" />
+        <input type="hidden" name="source" value="hdr" />
+      </div>
+    </form>
+    
+    <div class="col-lg-2 col-md-12 text-center-sm text-center-md row-space-sm-1 filter-label">
+        <label>Даты</label>
+      </div>
+
+      <form class="col-lg-9 trip-form">
+        <div class="row row-condensed">
+          <div class="col-md-4 col-sm-6 row-space-1-sm">
+            <input name="checkin"
+                   type="text"
+                   class="checkin tour-target"
+                   placeholder="Прибытие">
+          </div>
+
+          <div class="col-md-4 col-sm-6 row-space-1-sm">
+            <input name="checkout"
+                   type="text"
+                   class="checkout tour-target"
+                   placeholder="Выезд">
+          </div>
+
+          <div class="col-md-4 col-sm-12">
+            <div class="select select-block">
+              <select name="guests"
+                      class="guest-select"
+                      data-prefill="">
+                <option value="1">1 гость</option>
+                <option value="2">2 гостя</option>
+                <option value="3">3 гостя</option>
+                <option value="4">4 гостя</option>
+                <option value="5">5 гостей</option>
+                <option value="6">6 гостей</option>
+                <option value="7">7 гостей</option>
+                <option value="8">8 гостей</option>
+                <option value="9">9 гостей</option>
+                <option value="10">10 гостей</option>
+                <option value="11">11 гостей</option>
+                <option value="12">12 гостей</option>
+                <option value="13">13 гостей</option>
+                <option value="14">14 гостей</option>
+                <option value="15">15 гостей</option>
+                <option value="16">16+ гостей</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+</div>
+ 
+
+
+
+ <div class="filters-section room-type-group intro-filter panel-body panel-light">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
+        <label>
+          Тип размещения
+          <i class="icon icon-question hide-sm hide-md" id="room-type-tooltip"></i>
+        </label>
+
+        <div class="tooltip tooltip-left-middle show-lg" role="tooltip" data-trigger="#room-type-tooltip"
+             data-sticky="true">
+          <dl class="panel-body">
+            <dt>Жилье целиком</dt>
+            <dd>Объявления о сдаче квартиры или дома целиком.</dd>
+            <dt>Отдельная комната</dt>
+            <dd>У вас будет отдельная комната, но места общего пользования вы будете с кем-то делить.</dd>
+            <dt>Общая комната</dt>
+            <dd>Здесь вам предстоит делить комнату с соседями, либо жить в комнате общего пользования.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="col-lg-9">
+        <div class="row row-condensed" id="room-options">
+
+          <div class="col-middle-alt col-sm-4">
+            <label class="checkbox panel panel-dark">
+              <input class="pull-right" type="checkbox" name="room-type" value="Entire home/apt">
+              <i class="icon icon-entire-place h5 needsclick"></i>
+              Жилье целиком
+            </label>
+          </div>
+
+          <div class="col-middle-alt col-sm-4">
+            <label class="checkbox panel panel-dark">
+              <input class="pull-right" type="checkbox" name="room-type" value="Private room">
+              <i class="icon icon-private-room h5 needsclick"></i>
+              Отдельная комната
+            </label>
+          </div>
+
+          <div class="col-middle-alt col-sm-4">
+            <label class="checkbox panel panel-dark">
+              <input class="pull-right" type="checkbox" name="room-type" value="Shared room">
+              <i class="icon icon-shared-room h5 needsclick"></i>
+              Общая комната
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+

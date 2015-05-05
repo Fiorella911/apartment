@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>110apartments</title>
+<!-- CSS Files-->
+{% block stylesheets %}  
+<link href="{{ asset('/bundles/apartmentapart/css/style.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('/bundles/apartmentapart/css/homepage.css') }}" rel="stylesheet" type="text/css" /><!-- homepage stylesheet -->
+<link href="{{ asset('/bundles/apartmentapart/css/skins/lilac.css') }}" rel="stylesheet" type="text/css" /><!-- skin color -->
+<link href="{{ asset('/bundles/apartmentapart/css/responsive.css') }}" rel="stylesheet" type="text/css" /><!-- nivo slider stylesheet -->
+<link href="{{ asset('/bundles/apartmentapart/css/nivoslider.css') }}" rel="stylesheet" type="text/css" /><!-- nivo slider stylesheet -->
+<link href="{{ asset('/bundles/apartmentapart/css/blog.css') }}" rel="stylesheet" type="text/css" /><!-- blog stylesheet -->
+<link href="{{ asset('/bundles/apartmentapart/css/prettyphoto.css') }}" rel="stylesheet" type="text/css" /><!-- for gallery -->
+{% endblock stylesheets %}
+
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->    
+</head>
+<body>
+
+
+
+<!-- HEADER
+================================================== -->
+ 
+<div class="row">	
+   <div class="logo"><a href="/">110apartments</a></div>
+    <h1>Accommodation and vacation rentals</h1>
+    
+    <div class="eight columns noleftmarg">
+        <li><a class="btn" href="/property/createbyguest">List your place</a></li>
+        <li><a class="auth-link" href="{{ path('fos_user_security_login') }}">Login</a></li>
+        {% if is_granted('ROLE_USER') %}  
+                <li><a href="{{ path('bundles_user_user_profile') }}">Личный кабинет</a></li>
+        {% endif %}
+        
+        <nav id="nav-wrap">
+            <ul id="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/site/page?view=info_important">guest info</a></li>
+                <li><a href="/site/page?view=about_us">about us</a></li>
+                <li><a href="/site/page?view=contact_us">contact us</a></li>
+                <li><a href="/site/page?view=cancellation">cancellation</a></li>
+                <li><a href="/site/page?view=info_links">links</a></li>
+            </ul>
+                
+            
+        </nav>
+    </div>	
+</div>
+<div class="clear">
+</div>
+
+  
+  
+{% block content %}
+{% endblock %}
+
+
+<!-- FOOOTER 
+================================================== -->
+
+<div id="load-more" style="display:none"></div>
+<div class="align-c"><a href="#" class="btn btn-big btn-more">MORE</a></div>
+<div class="navigation" style="display:none;">
+    <a href="/site/homelazyload?page=2">NEXT</a>
+</div>
+{{ render(controller("ApartmentApartBundle:Main:allTowns")) }}
+
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="{{ asset('/bundles/apartmentapart/javascripts/foundation.min.js') }}"></script>   
+<script src="{{ asset('/bundles/apartmentapart/javascripts/jquery.easing.1.3.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/elasticslideshow.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/jquery.carouFredSel-6.0.5-packed.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/jquery.cycle.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/app.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/modernizr.foundation.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/slidepanel.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/scrolltotop.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/hoverIntent.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/superfish.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/responsivemenu.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/jquery.tweet.js') }}"></script>
+<script src="{{ asset('/bundles/apartmentapart/javascripts/twitterusername.js') }}"></script>
+</body>
+</html>
